@@ -8,6 +8,12 @@ Install on vitual env
 python setup.py install
 
 ========================
+Description
+========================
+Alfa version contain email guessing by name in emial.
+In future I plan to add next modules that guess bu surname and nickname.
+
+========================
 Example of use
 ========================
 
