@@ -45,11 +45,11 @@ class TestNameGuesser(unittest.TestCase):
         self.assertEqual("marek", factories.name_guesser_factory().get_most_popular_substring_name(mail_content2))
 
     def test_integrate(self):
-        name_guesser_obj1 = name_guesser.NameGuesser("michal.mokrogulski@gmail.com")
-        name_guesser_obj2 = name_guesser.NameGuesser("arturrasicki@gmail.com")
-        name_guesser_obj3 = name_guesser.NameGuesser("agatamachowiec@gmail.com")
-        name_guesser_obj4 = name_guesser.NameGuesser("asfdsadfiec@gmail.com")
-        name_guesser_obj5 = name_guesser.NameGuesser("maciejopieka@gmail.com")
+        name_guesser_obj1 = factories.name_guesser_factory("michal.mokrogulski@gmail.com")
+        name_guesser_obj2 = factories.name_guesser_factory("arturrasicki@gmail.com")
+        name_guesser_obj3 = factories.name_guesser_factory("agatamachowiec@gmail.com")
+        name_guesser_obj4 = factories.name_guesser_factory("asfdsadfiec@gmail.com")
+        name_guesser_obj5 = factories.name_guesser_factory("maciejopieka@gmail.com")
         self.assertEqual("male", name_guesser_obj1.guess())
         self.assertEqual("male", name_guesser_obj2.guess())
         self.assertEqual("female", name_guesser_obj3.guess())

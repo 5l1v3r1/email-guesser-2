@@ -3,11 +3,12 @@ import email_guesser.guesser as guesser
 import gender_guesser.detector as gender
 
 class NameGuesser(guesser.Guesser):
-    def __init__(self, email):
-        super(self.__class__, self).__init__(email)
+    def __init__(self):
+        super(self.__class__, self).__init__()
         self.gender_detector = gender.Detector(case_sensitive=False)
 
     def guess(self):
+        super(NameGuesser, self).guess()
         result_from_common_expresion =  self.common_expesions(self.email_content)
         if result_from_common_expresion:
             return result_from_common_expresion['gender']

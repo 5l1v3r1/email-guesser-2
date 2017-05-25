@@ -1,11 +1,19 @@
 class Guesser:
-    def __init__(self, email):
+    def __init__(self):
+        pass
+
+
+    def set_email(self, email):
+        self.email = email
         email_params = Guesser.email_parser(email)
         self.email_content = email_params['content']
         self.email_sufix = email_params['sufix']
 
     def guess(self):
-        raise NotImplementedError
+        try:
+            getattr(self, "email")
+        except AttributeError:
+            raise EmailNotSetError
 
     @staticmethod
     def email_parser(email):
@@ -33,3 +41,5 @@ class Guesser:
             set_of_substrings.add(string[0:i])
         return set_of_substrings
 
+class EmailNotSetError(Exception):
+    pass
